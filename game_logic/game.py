@@ -1,4 +1,5 @@
-from ..utils.deck import shuffle
+from utils.deck import shuffle
+
 def create_player(name:str) -> dict:
     player1={}
 
@@ -14,19 +15,14 @@ def init_game()->dict:
     init_play={}
     p1=create_player(input("plaese enter your name:  "))
     p2=create_player("AI")
-    deck="shuffle"
+    deck=shuffle()
 
     init_play["p1"]=p1
     init_play["p2"]=p2
     init_play["deck"]=deck
 
-    return 
+    return init_play
 
 def play_round(p1:dict,p2:dict):
 
     return None
-
-
-# a. create_player(name:str) -> dict
-# b. init_game()->dict
-# c. play_round(p1:dict,p2:dict)
