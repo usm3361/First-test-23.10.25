@@ -55,12 +55,13 @@ def compare_cards(p1_card:dict, p2_card:dict) -> str:
     
 
 def shuffle(deck:list[dict])-> list[dict]:    
-
-    
-    index_card1=random.randint(0,51)
-    index_card2=random.randint(0,51)
-
-    shuffle=deck[index_card1],deck[index_card2]= deck[index_card2],deck[index_card1]
+    count=0
+    while count < 1000:
+        index_card1=random.randint(0,52)
+        index_card2=random.randint(0,52)
+        if index_card1!=index_card2:
+            count+=1
+            shuffle=deck[index_card1],deck[index_card2]= deck[index_card2],deck[index_card1]
 
     return shuffle
 
