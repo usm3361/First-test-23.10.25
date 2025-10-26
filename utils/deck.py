@@ -48,8 +48,18 @@ def compare_cards(p1_card:dict, p2_card:dict) -> str:
     p2_card=()
     if p1_card["value"] > p2_card["value"]:
         return "p1"
-    elif p1_card["value"] < p2_card["value"]:
-        return "p1"
-    return "war"
+    else:
+        return "p2"
+    
 
-print(shuffle(create_deck()))
+def shuffle(deck:list[dict])-> list[dict]:    
+
+    
+    index_card1=random.randint(0,51)
+    index_card2=random.randint(0,51)
+
+    shuffle=deck[index_card1],deck[index_card2]= deck[index_card2],deck[index_card1]
+
+    return shuffle
+
+shuffle(create_deck)
