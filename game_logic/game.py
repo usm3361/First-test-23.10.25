@@ -1,6 +1,6 @@
-from utils.deck import shuffle
+from utils.deck import shuffle, create_deck, compare_cards
 
-def create_player(name:str) -> dict:
+def create_player(name:str="AI") -> dict:
     player1={}
 
     player=name
@@ -12,17 +12,28 @@ def create_player(name:str) -> dict:
     return player1
 
 def init_game()->dict:
-    init_play={}
     p1=create_player(input("plaese enter your name:  "))
-    p2=create_player("AI")
-    deck=shuffle()
+    p2=create_player()
+    deck=(create_deck())
+    shuffles=shuffle(deck)
 
-    init_play["p1"]=p1
-    init_play["p2"]=p2
-    init_play["deck"]=deck
+    p1["hand"]=shuffles[:26]
+    p2["hand"]=shuffles[26:]
 
-    return init_play
+    game={
+        "p1":p1,
+        "p2":p2,
+        "deck":shuffles
+        }
+
+    return game
 
 def play_round(p1:dict,p2:dict):
-
+    card_p1=p1["hand"].pop()
+    card_p2=p2["hand"].pop()
+    round_winner= compare_cards(card_p1,card_p2)
+    if round_winner==p1:
+        p1["won_pile"].appand
     return None
+
+print(init_game())
